@@ -17,7 +17,31 @@ formulario.addEventListener('submit', function(event) {
   }
 
   // Salvar no navegador
-  localStorag
+  var matriz = new Array(6)
+  
+  if (localStorage.getItem("qnt") === null)
+  {
+    localStorage.setItem('qnt', 0)
+  }
+
+  var i = parseInt(localStorage.getItem("qnt"))
+
+  localStorage.setItem('titulo'+i, titulo)
+  localStorage.setItem('autor'+i, autor)
+  localStorage.setItem('genero'+i, genero)
+  localStorage.setItem('estado'+i, estado)
+  localStorage.setItem('nomeDoador'+i, nomeDoador)
+  localStorage.setItem('contatoDoador'+i, contatoDoador)
+
+  i = i+1
+  localStorage.setItem('qnt', i)
 
   alert('Livro cadastrado com sucesso!');
 });
+
+function setTable() 
+{
+  document.getElementById("td1").value = localStorage.getItem('titulo0')
+
+  alert(document.getElementById("td1").value)
+}
