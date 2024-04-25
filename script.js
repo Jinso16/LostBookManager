@@ -1,6 +1,6 @@
-const formulario = document.getElementById('formulario');
 
-formulario.addEventListener('submit', function(event) {
+
+function setData() {
   event.preventDefault(); // Evita o envio padrão do formulário
 
   const titulo = document.getElementById('titulo').value;
@@ -17,8 +17,6 @@ formulario.addEventListener('submit', function(event) {
   }
 
   // Salvar no navegador
-  var matriz = new Array(6)
-  
   if (localStorage.getItem("qnt") === null)
   {
     localStorage.setItem('qnt', 0)
@@ -41,7 +39,25 @@ formulario.addEventListener('submit', function(event) {
 
 function setTable() 
 {
-  document.getElementById("td1").value = localStorage.getItem('titulo0')
+  const listaLivros = document.getElementById('listaLivros')
+  listaLivros.innerHTML = ``;
 
-  alert(document.getElementById("td1").value)
+  const titulo = localStorage.getItem('titulo0');
+  const autor = localStorage.getItem('autor0');
+  const genero = localStorage.getItem('genero0');
+  const estado = localStorage.getItem('estado0');
+  const nomeDoador = localStorage.getItem('nomeDoador0');
+  const contatoDoador = localStorage.getItem('contatoDoador0');
+
+  const linhaTabela = document.createElement('tr')
+  linhaTabela.innerHTML = `
+    <td>${titulo}</td>
+    <td>${autor}</td>
+    <td>${genero}</td>
+    <td>${estado}</td>
+    <td>${nomeDoador}</td>
+    <td>${contatoDoador}</td>
+  `;
+
+  listaLivros.appendChild(linhaTabela);
 }
