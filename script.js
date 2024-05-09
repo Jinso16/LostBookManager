@@ -35,29 +35,4 @@ function setData() {
   localStorage.setItem('qnt', i)
 
   alert('Livro cadastrado com sucesso!');
-});
-
-function setTable() 
-{
-  const listaLivros = document.getElementById('listaLivros')
-  listaLivros.innerHTML = ``;
-
-  const titulo = localStorage.getItem('titulo0');
-  const autor = localStorage.getItem('autor0');
-  const genero = localStorage.getItem('genero0');
-  const estado = localStorage.getItem('estado0');
-  const nomeDoador = localStorage.getItem('nomeDoador0');
-  const contatoDoador = localStorage.getItem('contatoDoador0');
-
-  const linhaTabela = document.createElement('tr')
-  linhaTabela.innerHTML = `
-    <td>${titulo}</td>
-    <td>${autor}</td>
-    <td>${genero}</td>
-    <td>${estado}</td>
-    <td>${nomeDoador}</td>
-    <td>${contatoDoador}</td>
-  `;
-
-  listaLivros.appendChild(linhaTabela);
-}
+};
